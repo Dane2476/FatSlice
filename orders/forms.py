@@ -53,13 +53,14 @@ class LoginForm(AuthenticationForm):
 class PizzaForm(forms.Form):
     def getPizzaChoices():
         choices = []
-        for choice in choices:
+        pizzas = PizzaSize.objects.all()
+        for pizza in pizzas:
             choices.append((pizza.price, pizza.size))
         return choices
 
     size = forms.ChoiceField(
         choices= getPizzaChoices,
-        label="Size: "
+        label="Size "
     )
     toppingsAllowed = (
         ('0', 'Cheese'),
