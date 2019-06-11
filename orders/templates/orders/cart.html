@@ -1,0 +1,61 @@
+{% extends 'orders/base.html' %}
+
+{% block title %} Fat Slice {% endblock %}
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}"></link>
+{% endblock %}
+
+{% block body %}
+{% include 'orders/altnav.html' %}
+{% if total == 0 %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col text-center">
+      <h2>No Items Ordered Yet!</h2>
+    </div>
+  </div>
+</div>
+{% else %}
+<div class="container">
+  <div class="row">
+    <div class="col cart">
+        <table class="table">
+          <thead>
+            <th>Items</th>
+            <th>Price</th>
+            <th>Delete</th>
+          </thead>
+        {% for item in items %}
+        <tr>
+          <td>{{item.item}}</td>
+          <td>{{item.price}}</td>
+          <!-- Potentially insecure -->
+          <form class="" method="post">
+            {% csrf_token %}
+          <td>
+            <input type="hidden" name="pk" value="{{item.pk}}">
+            <input type="submit" name="" class="btn btn-danger" value="Delete">
+          </td>
+          </form>
+        </tr>
+        {% endfor %}
+        <tfoot>
+          <td><strong>Total: {{total}}</strong></td>
+          <td></td>
+          <td>
+            <form class="" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-success" name="order">Place Order</button
+            </form>
+          </td>
+        </tfoot>
+        </table>
+
+    </div>
+  </div>
+</div>
+
+{% endif %}
+{% endblock %}

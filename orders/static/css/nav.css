@@ -1,0 +1,113 @@
+.nav {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.nav .row {
+  width: 100vw;
+}
+.nav svg {
+  width: 8em;
+}
+.nav .links {
+  padding-top: 1em;
+}
+.nav ul {
+  font-size: 1.3em;
+  font-family: gibbs, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+}
+.nav ul li {
+  padding-right: 7em;
+  display: inline;
+}
+.nav ul li:last-child {
+  padding-right: 0em;
+}
+.nav a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+.nav a:hover {
+  color: red;
+  transition: 0.2s ease;
+}
+
+.stickynav {
+  transition: 1s ease;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: -80px;
+}
+.stickynav .row {
+  width: 100vw;
+}
+.stickynav svg {
+  width: 2em;
+}
+.stickynav .links {
+  padding-top: 1em;
+}
+.stickynav .links ul {
+  font-size: 1.2em;
+  font-family: gill-sans-nova, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+}
+.stickynav .links ul li {
+  padding-right: 2em;
+  display: inline;
+}
+.stickynav a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+.stickynav a:hover {
+  color: red;
+  transition: 0.2s ease;
+}
+
+@media screen and (max-width: 1100px) {
+  .links ul li {
+    padding-right: 85px;
+  }
+}
+@media screen and (max-width: 830px) {
+  .nav svg {
+    width: 6em;
+  }
+  .nav .links ul {
+    font-size: 1em;
+  }
+  .nav .links ul li {
+    padding-right: 50px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .nav svg {
+    width: 6em;
+  }
+  .nav .links ul {
+    font-size: 1em;
+  }
+  .nav .links ul li {
+    padding-right: 15px;
+  }
+}
+
+/*# sourceMappingURL=nav.css.map */

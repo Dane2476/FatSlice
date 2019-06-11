@@ -1,0 +1,52 @@
+body {
+  background-color: #fafafa;
+}
+
+.btn-link {
+  text-align: center;
+  color: #dc3545;
+}
+
+.btn-link:hover {
+  color: #dc3545;
+}
+
+.accordion {
+  font-family: gill-sans-nova, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.accordion select {
+  background-color: #dc3545;
+  color: white;
+  padding: 12px;
+  width: 150px;
+  border: none;
+  appearance: button;
+  outline: none;
+}
+.accordion .card-header {
+  background-color: white;
+}
+.accordion .btn {
+  font-family: gill-sans-nova, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center !important;
+}
+.accordion #id_toppings {
+  columns: 3;
+}
+.accordion ul {
+  columns: 3;
+  list-style: none;
+}
+.accordion ul li {
+  margin: 0;
+  padding: 0 0 0 0;
+}
+#menu table {
+  width: 100%;
+}
+
+/*# sourceMappingURL=order.css.map */

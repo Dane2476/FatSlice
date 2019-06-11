@@ -1,0 +1,136 @@
+.landing{
+  display:flex;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  background-image: url("/static/img/background.png");
+  box-shadow: inset 2000px 0 0 0 rgba(0, 0, 0, 0.5);
+  height:88vh;
+
+  h1{
+    font-family: p22-pouty-pro,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  h4{
+    font-size: 2em;
+    font-family: gill-sans-nova,sans-serif;
+    font-weight: 200;
+    font-style: italic;
+  }
+  .row{
+    justify-content: center;
+    display:flex;
+  }
+  .text{
+    color: white;
+  }
+  .picture{
+    img{
+      width:22em;
+    }
+  }
+  a{
+    background-color: white;
+    color:black;
+    border-radius: 11em;
+    padding: .5em 2em .5em 2em;
+    font-family: gill-sans-nova, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    border:1px solid white;
+    transition: .2s ease;
+
+  }
+  a:hover{
+    color:white;
+    text-decoration: none;
+    background-color: rgba(200, 200, 200, .4);
+    transition: .2s ease;
+
+  }
+}
+
+.menu{
+  h2{
+    font-family: gibbs,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  padding:4em 0 1em 0;
+  font-family: gill-sans-nova,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  .img1{
+    background-image: url("/static/img/regularpizza.jpg");
+    background-size: cover;
+  }
+  .img2{
+    background-image: url("/static/img/sicilianpizza.jpg");
+    background-size: cover;
+  }
+  .img3{
+    background-image: url("/static/img/sub.jpg");
+    background-size: cover;
+  }
+  .img4{
+    background-image: url("/static/img/pasta.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  .img5{
+    background-image: url("/static/img/salad.jpg");
+    background-size: cover;
+  }
+  .img6{
+    background-image: url("/static/img/platter.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  .item{
+    margin-top:2em;
+    margin-bottom: 2em;
+    background-color:#F7F8F3;
+  }
+  table{
+    margin-left: 20%;
+  }
+  td{
+    padding:1em;
+  }
+  .price{
+    color:#E26F48;
+    font-family: gill-sans-nova,sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+}
+
+
+@media screen and (max-width: 1100px){
+
+}
+
+@media screen and (max-width: 830px){
+  .landing{
+    .picture{
+      display:none;
+    }
+    .text{
+      text-align: center !important;
+    }
+  }
+  .menu{
+    .img{
+      display:none;
+    }
+    table{
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (max-width: 650px){
+
+}

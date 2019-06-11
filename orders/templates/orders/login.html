@@ -1,0 +1,51 @@
+{% extends 'orders/base.html' %}
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}"></link>
+{% endblock %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid justify-content-center nav">
+  <div class="row">
+    <div class="col links">
+      <ul>
+        <a href="#"><li>About</li></a>
+        <a href="#"><li>Contact</li></a>
+        <a href="#"><li>Menu</li></a>
+        <a href="/order"><li>Order</li></a>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container-fluid justify-content-center form">
+  <div class="row justify-content-center">
+    <div class="col-md-auto text-center">
+      {% load svg %}
+      <a href="/">{% svg 'fatsliceblack' %}</a>
+      <h3>Log in to place an order</h3><br>
+      <form class="register" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        {% for error in errors %}
+          {{error}}
+        {% endfor %}
+        <button type="submit" class="btn btn-danger">Log in</button>
+      </form>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-auto text-center">
+      <h6>Dont have an account?</h6>
+      <a href="/register">Register</a>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock %}

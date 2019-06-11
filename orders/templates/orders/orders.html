@@ -1,0 +1,65 @@
+{% extends 'orders/base.html' %}
+
+{% block title %} Fat Slice {% endblock %}
+
+{% block head %}
+{% load static %}
+<script src="{% static 'js/order.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/cart.css' %}"></link>
+{% endblock %}
+
+{% block body %}
+{% include 'orders/altnav.html' %}
+
+<div class="container">
+  <div class="row">
+    {% if orders %}
+    <div class="col cart">
+      {% for order in orders %}
+        {% if order.is_fulfilled == True %}
+          <table class="table">
+            <thead class="bg-success">
+              <th>{{order}}</th>
+              <th>Your order is on its way!</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{order.items|linebreaks}}</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td><strong>Total: {{order.total}}</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+          {% else %}
+          <table class="table">
+            <thead class="bg-warning">
+              <th>{{order}}</th>
+              <th>Your order is pending!</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{order.items|linebreaks}}</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td><strong>Total: {{order.total}}</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+    {% else %}
+      <div class="col text-center">
+        <h2>You haven't placed any orders!</h2>
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+{% endblock %}

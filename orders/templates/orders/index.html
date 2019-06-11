@@ -1,0 +1,272 @@
+{% extends 'orders/base.html' %}
+
+{% block title %} Fat Slice {% endblock %}
+
+{% block head %}
+{% load static %}
+<script src="{% static 'js/index.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/nav.css' %}"></link>
+<link rel="stylesheet" href="{% static 'css/index.css' %}"></link>
+{% endblock %}
+
+{% block body %}
+
+<!--        Nav Bar           -->
+<div class="container-fluid justify-content-center nav">
+  <div class="row justify-content-center">
+    <div class="col-4 text-center img">
+      {% load svg %}
+      <a href="/" class="logo">{% svg 'fatslice' %}</a>
+    </div>
+    <div class="col-8 links">
+      <ul class="text-left list-inline">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="/order">Order</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container-fluid justify-content-center stickynav">
+  <div class="row justify-content-center">
+    <div class="col links">
+      <ul>
+        <a href="#"><li>About</li></a>
+        <a href="#"><li>Contact</li></a>
+        <a href="#"><li>Menu</li></a>
+        <a href="/order"><li>Order</li></a>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid justify-content-center landing">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-left text">
+      <br>
+      <h1>Authentic Italian</h1>
+      <h4>Straight to your door</h4>
+      <br>
+      <a href="/order">Order Now</a>
+    </div>
+    <div class="col-md-4 picture">
+      <img src="{% static 'img/pizza.png' %}" alt="">
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Menu begins -->
+<div class="container menu">
+  <div class="row justify-content-center">
+    <div class="col text-center">
+      <h2>Menu</h2>
+      <hr>
+    </div>
+  </div>
+  <!--      Regular Pizzas        -->
+  <div class="row item justify-content-center">
+    <div class="col img img1">
+    </div>
+    <div class="col text-center">
+      <br>
+      <h3>Regular Pizzas</h3>
+      <br>
+      <table>
+        <tr>
+          <td></td>
+          <td>Small</td>
+          <td>Large</td>
+        </tr>
+        <tr>
+          <td>Cheese</td>
+          <td class="price">$12.20</td>
+          <td class="price">$17.45</td>
+        </tr>
+        <tr>
+          <td>1 Topping</td>
+          <td class="price">$13.20</td>
+          <td class="price">$19.45</td>
+        </tr>
+        <tr>
+          <td>2 Topping</td>
+          <td class="price">$14.70</td>
+          <td class="price">$21.45</td>
+        </tr>
+        <tr>
+          <td>3 Topping</td>
+          <td class="price">$15.70</td>
+          <td class="price">$23.45</td>
+        </tr>
+        <tr>
+          <td>Special</td>
+          <td class="price">$17.25</td>
+          <td class="price">$25.45</td>
+        </tr>
+      </table>
+      <br>
+    </div>
+  </div>
+
+  <!--      Sicilian Pizzas       -->
+  <div class="row item justify-content-center">
+    <div class="col text-center">
+      <br>
+      <h3>Sicilian Pizzas</h3>
+      <br>
+      <table>
+        <tr>
+          <td></td>
+          <td>Small</td>
+          <td>Large</td>
+        </tr>
+        <tr>
+          <td>Cheese</td>
+          <td class="price">$23.45</td>
+          <td class="price">$37.70</td>
+        </tr>
+        <tr>
+          <td>1 Topping</td>
+          <td class="price">$25.45</td>
+          <td class="price">$39.70</td>
+        </tr>
+        <tr>
+          <td>2 Topping</td>
+          <td class="price">$27.45</td>
+          <td class="price">$41.70</td>
+        </tr>
+        <tr>
+          <td>3 Topping</td>
+          <td class="price">$28.45</td>
+          <td class="price">$43.70</td>
+        </tr>
+        <tr>
+          <td>Special</td>
+          <td class="price">$29.45</td>
+          <td class="price">$44.70</td>
+        </tr>
+      </table>
+      <br>
+    </div>
+    <div class="col img img2">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col text-center toppings">
+      <h5>Toppings</h5>
+        {% for topping in toppings %}
+        {{topping}}
+        {% endfor %}
+    </div>
+  </div>
+
+  <!--       Subs     -->
+  <div class="row item justify-content-center">
+    <div class="col img img3">
+    </div>
+    <div class="col text-center">
+      <br>
+      <h3>Subs</h3>
+      <table>
+        <tr>
+          <td></td>
+          <td>Small</td>
+          <td>Large</td>
+        </tr>
+        {% for sub in subs %}
+        <tr>
+          <td>{{sub.name}}</td>
+          <td class="price">${{sub.smallPrice}}</td>
+          <td class="price">${{sub.largePrice}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <br>
+    </div>
+  </div>
+
+  <!--       Pastas     -->
+  <div class="row item justify-content-center">
+    <div class="col text-center">
+      <br>
+      <h3>Pasta</h3>
+      <table>
+        <tr>
+          <td></td>
+          <td>Price</td>
+          <td></td>
+        </tr>
+        {% for pasta in pastas %}
+        <tr>
+          <td>{{pasta.name}}</td>
+          <td class="price">${{pasta.price}}</td>
+          <td></td>
+        </tr>
+        {% endfor %}
+      </table>
+      <br>
+    </div>
+    <div class="col img img4">
+    </div>
+  </div>
+
+  <!--       Salads     -->
+  <div class="row item justify-content-center">
+    <div class="col img img5">
+    </div>
+    <div class="col text-center">
+      <br>
+      <h3>Salads</h3>
+      <table>
+        <tr>
+          <td></td>
+          <td>Price</td>
+          <td></td>
+        </tr>
+        {% for salad in salads %}
+        <tr>
+          <td>{{salad.name}}</td>
+          <td class="price">${{salad.price}}</td>
+          <td></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+      <br>
+  </div>
+
+  <!--       Platters     -->
+  <div class="row item justify-content-center">
+    <div class="col text-center">
+      <br>
+      <h3>Dinner Platters</h3>
+      <table>
+        <tr>
+          <td></td>
+          <td>Small</td>
+          <td>Large</td>
+        </tr>
+        {% for platter in dinnerPlatters %}
+        <tr>
+          <td>{{platter.name}}</td>
+          <td class="price">${{platter.smallPrice}}</td>
+          <td class="price">${{platter.largePrice}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <br>
+    <div class="col img img6">
+    </div>
+  </div>
+
+
+</div>
+
+
+
+{% endblock %}
