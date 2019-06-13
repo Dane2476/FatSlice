@@ -51,17 +51,12 @@ class LoginForm(AuthenticationForm):
 
 # Creating our pizza form to pass into Orders.html
 class PizzaForm(forms.Form):
-    def getPizzaChoices():
-        choices = []
-        pizzas = PizzaSize.objects.all()
-        for pizza in pizzas:
-            choices.append((pizza.price, pizza.size))
-        return choices
-
-    size = forms.ChoiceField(
-        choices= getPizzaChoices,
-        label="Size "
+    size = forms.ModelChoiceField(
+        queryset = PizzaSize.objects.all().values_list('size', flat=True),
+        empty_label = None,
+        label="Size ",
     )
+    
     toppingsAllowed = (
         ('0', 'Cheese'),
         ('1', '1 Topping'),
