@@ -88,11 +88,7 @@ def logout_view(request):
 # redirect to register page if user has not logged in
 @login_required(login_url='/register')
 def order(request):
-    # This ordering system has large security vulnerabilities and not created
-    # With the best practices
-    # If it were ever to be pushed to production for a real business,
-    # I would address them. But I wont for the sake of this project's functionality.
-
+    
     pizza = PizzaForm()
     subs = Sub.objects.all()
     pastas = Pasta.objects.all()
@@ -239,7 +235,6 @@ def cart(request):
 
         elif 'order' in request.POST:
             # I'm creating a text field here for the UserOrder model
-            # In a very inelegant way...
             userItems = ""
             for item in items:
                 userItems += item.item + "\n"
