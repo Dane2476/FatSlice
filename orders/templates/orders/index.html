@@ -181,6 +181,7 @@
         <tr>
           <td>{{sub.name}}</td>
           {% if sub.smallPrice == None %}
+           <td class="price"></td>
            <td class="price">${{sub.largePrice}}</td>
           {% else %}
             <td class="price">${{sub.smallPrice}}</td>
