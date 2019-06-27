@@ -180,8 +180,12 @@
         {% for sub in subs %}
         <tr>
           <td>{{sub.name}}</td>
-          <td class="price">${{sub.smallPrice}}</td>
-          <td class="price">${{sub.largePrice}}</td>
+          {% if sub.smallPrice == None %}
+           <td class="price">${{sub.largePrice}}</td>
+          {% else %}
+            <td class="price">${{sub.smallPrice}}</td>
+            <td class="price">${{sub.largePrice}}</td>
+          {% endif %}
         </tr>
         {% endfor %}
       </table>
