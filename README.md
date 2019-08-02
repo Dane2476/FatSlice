@@ -1,5 +1,5 @@
 ## Check out a live demo here:
-https://flack-chat.herokuapp.com/chatroom/
+http://fatslice.herokuapp.com/
 
 Users can register, login, and order various menu items.
 
