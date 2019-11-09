@@ -3,4 +3,5 @@ django-inline-svg==0.1.1
 
 #Heroku
 gunicorn
+psycopg2==2.7.5
 django-heroku
