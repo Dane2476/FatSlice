@@ -37,14 +37,14 @@ class LoginForm(AuthenticationForm):
     username = forms.CharField(
         label = ("Username"),
         widget = forms.TextInput(attrs={
-            'placeholder' : ' Username'
+            'value' : 'Guest'
         })
     )
 
     password = forms.CharField(
         label =("Password"),
         widget = forms.PasswordInput(attrs={
-            'placeholder' : ' Password'
+            'value' : 'testing1231'
         })
     )
 
@@ -56,7 +56,7 @@ class PizzaForm(forms.Form):
         empty_label = None,
         label="Size ",
     )
-    
+
     toppingsAllowed = (
         ('0', 'Cheese'),
         ('1', '1 Topping'),
